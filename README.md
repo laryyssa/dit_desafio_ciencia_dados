@@ -5,7 +5,7 @@ Desafio: Extrair dados de uma API de 1 em 1 minuto, criar csv desses dados e adi
 
 ## 📦 **1. Configuração do Projeto**
 
-### 🔑 **1.1 Clonar o Repositório**
+### **1.1 Clonar o Repositório**
 
 ```bash
 # Clone o projeto
@@ -13,7 +13,7 @@ git clone https://github.com/seu-usuario/dit_desafio_eng_dados.git
 cd dit_desafio_eng_dados
 ```
 
-### 🌿 **1.2 Criar Ambiente Virtual**
+### **1.2 Criar Ambiente Virtual**
 
 ```bash
 # Crie e ative o ambiente virtual
@@ -24,9 +24,9 @@ source venv/bin/activate  # No Windows, use: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 🔐 **1.3 Configurar o Arquivo**
+### **1.3 Configurar o Arquivo**
 
-Crie um arquivo `.env` do projeto:
+Adicione as variaveis `PREFECT_API_KEY` e `PREFECT_API_URL` ao arquivo `.env` do projeto:
 
 ```ini
 # url de extração
@@ -52,22 +52,20 @@ DEPLOYMENT_NAME = "desafio_eng_dados"
 DOCKER_POOL = "my-docker-pool"
 ```
 
-###  🚀 **1.4 Subir um banco postgres usando Docker**
+### **1.4 Subir banco Postgresql usando Docker**
 ```bash
 docker-compose up --build
 ```
 ## 🚀 **2. Executar o Prefect**
-### ✅ 2.1 Iniciar o Servidor Prefect
+### 2.1 Iniciar o Servidor Prefect
 
 ```bash
 prefect server start
 ```
 
-### 📊 2.2 Rodar o Fluxo de Extração da API
+### 2.2 Rodar o Fluxo de Extração da API
 
-Faça o primeiro comando para abrir o workspace e o segundo para executar o flow.
-
-Execute o fluxo Prefect para extrair dados e gerar o CSV `data_extract.csv`. Os dados serão salvos como arquivos CSV na pasta `data/` e depois inseridos no banco de dados Postrgres na tabela `veiculos`.
+Faça o primeiro comando para abrir o workspace e o segundo para executar o flow, dessa forma gerando o CSV `data_extract.csv`. Os dados serão salvos como arquivos CSV na pasta `data/` e depois inseridos no banco de dados Postrgres na tabela `veiculos`.
 
 ```bash
 prefect python pipeline/main.py
@@ -76,9 +74,9 @@ prefect deployment run 'exctract-data/desafio_eng_dados'
 ```
 
 
-## 🚀 **3. Executar o DBT**
+## 👀 **3. Executar o DBT**
 
-### ✅ **3.1 Testar a Conexão**
+### **3.1 Testar a Conexão**
 
 ```bash
 # Testar conexão DBT
@@ -86,8 +84,8 @@ cd veiculos_dbt
 dbt debug
 ```
 
-### 🏗️ **3.2 Executar o Projeto**
-Cria uma view composta de id, latitude e longitude e velocidade do veiculo
+### **3.2 Executar o Projeto**
+Cria uma view `veiculos_dbt` composta de id, latitude e longitude e velocidade do veiculo.
 
 ```bash
 # Rodar os modelos
