@@ -1,3 +1,10 @@
 venv/
-data/
+data/data_extract.csv
 __pycache__/
+logs/
+
+# Pastas geradas pelo dbt
+veiculos_dbt/dbt_packages/
+veiculos_dbt/dbt_modules/
+veiculos_dbt/target/
+veiculos_dbt/logs/
