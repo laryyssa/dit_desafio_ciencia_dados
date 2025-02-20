@@ -34,18 +34,18 @@ API_URL = "https://dados.mobilidade.rio/gps/brt"
 
 # prefect
 PREFECT_API_KEY = # adicione aqui sua api key que esta nesse link (https://app.prefect.cloud/my/api-keys)
-PREFECT_API_URL="http://127.0.0.1:4200/api" # para executar localmente
+PREFECT_API_URL = "http://127.0.0.1:4200/api" # para executar localmente
 
 # banco de dados
-POSTGRES_USER="psql"
-POSTGRES_PASSWORD="senha"
-POSTGRES_DB="psqldb"
-POSTGRES_HOST="localhost"
-POSTGRES_PORT="5433"
+POSTGRES_USER = "psql"
+POSTGRES_PASSWORD = "senha"
+POSTGRES_DB = "psqldb"
+POSTGRES_HOST = "localhost"
+POSTGRES_PORT = "5433"
 
 DATABASE_URL = postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
 
-TABLE_NAME= "veiculos"
+TABLE_NAME = "veiculos"
 
 # prefect configs
 DEPLOYMENT_NAME = "desafio_eng_dados"

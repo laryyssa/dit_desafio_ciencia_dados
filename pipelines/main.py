@@ -27,6 +27,9 @@ def get_json_data(url):
 
         return repo["veiculos"]
     
+    except KeyError as ke:
+        print(f"ERROR - KeyError: {ke}")
+
     except Exception as e:
         print(f"ERROR - get_json_data: {e}")
 
@@ -36,6 +39,9 @@ def load_json_to_csv(data, csv_path):
         df = pd.DataFrame(data)
         df.to_csv(csv_path)
     
+    except pd.errors.EmptyDataError:
+        print(f"ERROR - '{path}' está vazio")
+
     except Exception as e:
         print(f"ERROR - load_json_to_csv: {e}")
 
@@ -47,6 +53,15 @@ def load_csv_to_database(database, table, path):
         df = pd.read_csv(path)
         df.to_sql(table, engine, if_exists='append', index=True)
     
+    except FileNotFoundError as fnf:
+        print(f"ERROR - Arquivo Inexistente: {fnf}")
+
+    except pd.errors.EmptyDataError:
+        print(f"ERROR - '{path}' está vazio")
+
+    except ConnectionError:
+        print("ERROR - database connection")
+
     except Exception as e:
         print(f"ERROR - load_csv_to_database: {e}")
 
